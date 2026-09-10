@@ -1,6 +1,16 @@
 name: workflow to build and review 
 
-on: push
+on:
+  workflow_dispatch:
+    inputs:
+      job_name:
+        description: 'enter the name of the job'
+        required: true
+        type: choice
+        options:
+          - job_maven
+          - job_sonar
+          
 
 jobs:
   job_maven:
@@ -15,7 +25,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
     - name: build the code by maven 
-      run: mvn clean install
+      run: mvn clean install 
   job_sonar:
     needs: job_maven
     runs-on: ubuntu-latest
