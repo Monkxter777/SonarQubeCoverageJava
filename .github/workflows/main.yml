@@ -10,10 +10,11 @@ on:
         options:
           - job_maven
           - job_sonar
-          
+
 
 jobs:
   job_maven:
+    if: ${{ github.event.inputs.job_name == 'job_maven'}}
     continue-on-error: true
     runs-on: ubuntu-latest
     steps:
@@ -27,6 +28,7 @@ jobs:
     - name: build the code by maven 
       run: mvn clean install 
   job_sonar:
+    if: ${{ github.event.inputs.job_name == 'job_sonar'}}
     needs: job_maven
     runs-on: ubuntu-latest
     steps:
