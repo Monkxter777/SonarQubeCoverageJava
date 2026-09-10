@@ -10,7 +10,7 @@ jobs:
     - name: checkout
       uses: actions/checkout@v7
     - name: set up java
-      uses: actons/setup-java@v6
+      uses: actions/setup-java@v6
       with:
         java-version: '17'
         distribution: 'temurin'
