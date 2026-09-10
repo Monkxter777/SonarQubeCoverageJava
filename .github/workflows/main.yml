@@ -15,7 +15,7 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
     - name: build the code by maven 
-      run: mvn clean ins
+      run: mvn clean install
   job_sonar:
     needs: job_maven
     runs-on: ubuntu-latest
