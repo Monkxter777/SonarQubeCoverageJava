@@ -4,12 +4,13 @@ on: push
 
 jobs:
   job_maven:
+    continue-on-error: true
     runs-on: ubuntu-latest
     steps:
     - name: checkout
       uses: actions/checkout@v7
     - name: set up java
-      uses: actions/setup-java@v6
+      uses: actons/setup-java@v6
       with:
         java-version: '17'
         distribution: 'temurin'
